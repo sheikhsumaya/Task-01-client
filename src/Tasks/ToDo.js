@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ToDo = () => {
   const [date, setDate] = useState();
@@ -8,9 +9,8 @@ const ToDo = () => {
   const onSubmit = data =>{
      
    console.log(data);
-   const url = 'http://localhost:5000/tasks'
-// const url = 'https://limitless-river-03333.herokuapp.com/toDoList'
-console.log(url);
+   const url = ' https://intense-fortress-95385.herokuapp.com/tasks';
+
 fetch(url, {
     method:'POST',
     headers: {
@@ -49,6 +49,7 @@ fetch(url, {
       <p>Selected Date: {date}</p>
      </div>
      </form>
+     <ToastContainer/>
     </div>
   );
 };

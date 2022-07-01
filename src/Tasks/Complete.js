@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Complete = ({task, handleToDelete, index }) => {
   const { AddTask, Description, Date} = task;
@@ -7,17 +8,18 @@ const Complete = ({task, handleToDelete, index }) => {
 
   const handleToDone = (e) => {
     setChecked({ ...checked, [e.target.name]: e.target.checked });
-    toast("Done");
+    toast('Completed Tasks Successfully!')
+    
   };
   return (
     <div>
       <div>
-        <tr className="px-20 ">
-          <th className="px-20 ">{index + 1}</th>
-          <td className="px-20">
+        <tr className="grid lg:gap-12 grid-cols-5 ">
+          <th className="">{index + 1}</th>
+          <td className="">
             <span>
               <input
-                className="text-4xl"
+                className="lg:text-4xl"
                 name="done"
                 value={checked.done}
                 onChange={handleToDone}
@@ -29,13 +31,14 @@ const Complete = ({task, handleToDelete, index }) => {
               </span>
             </span>
           </td>
-          <td className="px-20">{Description}</td>
+          <td className="">{Description}</td>
+          <td className="">{Date}</td>
 
-          <td className="px-20">
+          <td className="">
             {" "}
             <button
-              onClick={() => handleToDelete( task._id)}
-              className="btn btn-accent" 
+              onClick={() => handleToDelete(task._id)}
+              className="btn btn-primary" 
             >
               Delete
             </button>
@@ -48,3 +51,5 @@ const Complete = ({task, handleToDelete, index }) => {
 };
 
 export default Complete;
+
+

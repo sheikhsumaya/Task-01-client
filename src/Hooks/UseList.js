@@ -4,7 +4,7 @@ const UseList = () => {
     const [ tasksList,setTasksList] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/tasks')
+        fetch(' https://intense-fortress-95385.herokuapp.com/tasks')
      
         .then(res =>res.json())
         .then(data =>{
